@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إدارة قاعدة بيانات الطلاب</title>
-  <!-- ربط مكتبة SQL.js و SheetJS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.5.0/sql-wasm.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script src="app.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الطلاب</title>
+    <!-- استيراد ملف التنسيقات CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- استيراد مكتبة Supabase -->
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
 </head>
 <body>
-  <h1>إدارة قاعدة بيانات الطلاب</h1>
 
-  <!-- نموذج لإضافة طالب جديد -->
-  <form id="student-form">
-    <label for="studentId">رقم الطالب المميز:</label>
-    <input type="text" id="studentId" required><br><br>
+    <h1>إدارة الطلاب أثناء الاختبارات</h1>
 
-    <label for="name">اسم الطالب:</label>
-    <input type="text" id="name" required><br><br>
+    <!-- نموذج إدخال بيانات الطلاب -->
+    <form id="student-form">
+        <label for="studentId">رقم مميز للطالب:</label>
+        <input type="text" id="studentId" name="studentId" required><br><br>
 
-    <label for="nationalId">رقم الهوية:</label>
-    <input type="text" id="nationalId" required><br><br>
+        <label for="name">اسم الطالب:</label>
+        <input type="text" id="name" name="name" required><br><br>
 
-    <label for="grade">الصف الدراسي:</label>
-    <input type="text" id="grade" required><br><br>
+        <label for="nationalId">رقم الهوية:</label>
+        <input type="text" id="nationalId" name="nationalId" required><br><br>
 
-    <button type="submit">إضافة الطالب</button>
-  </form>
+        <label for="grade">الصف الدراسي:</label>
+        <input type="text" id="grade" name="grade" required><br><br>
 
-  <!-- رفع ملف Excel -->
-  <h2>رفع ملف Excel</h2>
-  <input type="file" id="fileUpload" accept=".xlsx, .xls" />
+        <button type="submit">إضافة الطالب</button>
+    </form>
 
-  <!-- قائمة الطلاب -->
-  <h2>قائمة الطلاب</h2>
-  <div id="students-list"></div>
+    <hr>
+
+    <!-- قائمة الطلاب -->
+    <h2>قائمة الطلاب</h2>
+    <div id="students-list"></div>
+
+    <!-- استيراد ملف JavaScript -->
+    <script src="app.js"></script>
 </body>
 </html>

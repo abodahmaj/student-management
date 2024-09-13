@@ -1,6 +1,7 @@
 // ربط التطبيق بقاعدة بيانات Supabase
-const SUPABASE_URL = 'https://your-project-url.supabase.co'; // استبدلها بـ URL الخاص بمشروعك
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdub2t5aWxvZnJidG1nY3p4cHlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjYyMzk5NzksImV4cCI6MjA0MTgxNTk3OX0.y7DZAf9SVqN58acfGhPHm4S95bSN0RjInXHJoDKDQkY'; // استبدلها بـ المفتاح العام (API key)
+const SUPABASE_URL = 'https://gnokyilofrbtmgczxpyrc.supabase.co'; // استبدل بـ URL الخاص بمشروعك
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdub2t5aWxvZnJidG1nY3p4cHlyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjYyMzk5NzksImV4cCI6MjA0MTgxNTk3OX0.y7DZAf9SVqN58acfGhPHm4S95bSN0RjInXHJoDKDQkY';
+
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // دالة لإضافة طالب جديد إلى قاعدة البيانات
@@ -31,6 +32,8 @@ async function getStudents() {
     return data;
   }
 }
+
+// التعامل مع إدخال النموذج
 document.getElementById('student-form').addEventListener('submit', async function(e) {
   e.preventDefault();
 
@@ -49,6 +52,7 @@ document.getElementById('student-form').addEventListener('submit', async functio
   const students = await getStudents();
   displayStudents(students);
 });
+
 // دالة لعرض الطلاب في HTML
 function displayStudents(students) {
   let studentsList = '';
